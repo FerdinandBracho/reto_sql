@@ -29,7 +29,6 @@ create table if not exists regions(
 	id serial primary key not null,
 	name varchar(20)
 );
-
 create table if not exists departments(
   id serial primary key not null,
   name varchar(50),
@@ -40,7 +39,6 @@ create table if not exists departments(
   constraint fk_locations
   		foreign key(location_id) references locations(id)
 );
-
 create  table if not exists employees(
 	id serial primary key not null,
   	first_name varchar(50),
@@ -49,8 +47,6 @@ create  table if not exists employees(
 	email varchar(100),
   	hire_date date
 );
-
-
 insert into regions(name)
 values
 	('North America'),
