@@ -27,17 +27,18 @@ create table if not exists locations(
 -- !Seccion Antonio
 create table if not exists regions(
 	id serial primary key not null,
-	name varchar(20)
+	name varchar(10)
 );
+
 create table if not exists departments(
   id serial primary key not null,
   name varchar(50),
   manager_id int,
   location_id int,
   constraint fk_managers
-		foreign key(manager_id) references managers(id),
+		foreign key(manager_id) references managers(id)
   constraint fk_locations
-  		foreign key(location_id) references locations(id)
+    foreign key(location_id) references locations(id)
 );
 create  table if not exists employees(
 	id serial primary key not null,
@@ -63,12 +64,19 @@ create database human_resources_control_system;
 -- ? Creacion tabla managers
 create table if not exists managers (
 	id serial primary key not null unique, 
-	employee_id int not null 
+	employee_id int not null,
 	
 	constraint fk_employee
 		foreign key (employee_id)
 			references employees(id)
 );
+
+    -- ?Carga de datos en tabla managers
+    insert into managers (employee_id)
+    values 
+        (3),
+        (4),
+        (8)
 
 -- ? Creacion tabla hirings
 create table if not exists hirings ( 
@@ -80,7 +88,7 @@ create table if not exists hirings (
 	salary float not null,
 	comission_pct float not null,
 	manager_id int not null,
-	departament_id int not null
+	departament_id int not null,
 	
 	constraint fk_employee
 		foreign key (employee_id)
