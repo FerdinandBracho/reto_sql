@@ -40,8 +40,23 @@ create table if not exists departments(
   constraint fk_locations
     foreign key(location_id) references locations(id)
 );
+create  table if not exists employees(
+	id serial primary key not null,
+  	first_name varchar(50),
+  	last_name varchar(50),
+  	phone_number varchar(20),
+	email varchar(100),
+  	hire_date date
+);
+insert into regions(name)
+values
+	('North America'),
+	('Europe'),
+	('Asia'),
+	('South America'),
+	('Oceania');
 
--- !Seccion Ferdinand
+-- !Seccion Ferdinand 
 -- ? Creacion base de datos 
 create database human_resources_control_system;
 
@@ -54,6 +69,13 @@ create table if not exists managers (
 		foreign key (employee_id)
 			references employees(id)
 );
+
+    -- ?Carga de datos en tabla managers
+    insert into managers (employee_id)
+    values 
+        (3),
+        (4),
+        (8)
 
 -- ? Creacion tabla hirings
 create table if not exists hirings ( 
