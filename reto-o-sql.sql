@@ -69,7 +69,7 @@ create table if not exists hirings (
 	salary float not null,
 	comission_pct float not null,
 	manager_id int not null,
-	departament_id int not null,
+	department_id int not null,
 	
 	constraint fk_employee
 		foreign key (employee_id)
@@ -84,7 +84,7 @@ create table if not exists hirings (
 			references managers(id),
 			
 	constraint fk_department
-		foreign key (departament_id)
+		foreign key (department_id)
 			references departments(id)
 );
 
@@ -138,7 +138,7 @@ values
 	('Research and Development',1,2),
 	('Legal',2,2);
 
-insert into hirings (employee_id, start_date, end_date, job_id, salary, comission_pct, manager_id, departament_id)
+insert into hirings (employee_id, start_date, end_date, job_id, salary, comission_pct, manager_id, department_id)
 values 
 	(1,'04/12/2020',NULL,8,17000,30,2,5),
 	(2,'11/29/2020',NULL,7,15000,10,1,6),
@@ -157,7 +157,7 @@ set job_id = 1,
 	salary = 20000,
 	comission_pct = 20,
 	departament_id = 10
-where employee_id = 10
+where employee_id = 10;
 
 update employees 
 set first_name = 'nuevo_nombre',
@@ -165,4 +165,12 @@ set first_name = 'nuevo_nombre',
 	email = 'nuevo-mail',
 	phone_number = 'nuevo_num',
 	hire_date = '01/01/2022'
-where id = 10
+where id = 10;
+
+
+-- !Vistas 
+select first_name, last_name from employees;
+
+select * from employees
+	left join hirings
+		on employees.id = hirings.employee_id;
