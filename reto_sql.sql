@@ -1,3 +1,6 @@
+-- ? Creacion base de datos 
+create database human_resources_control_system;
+
 -- !Seccion Aaron 
 create table if not exists countries(
 	id serial primary key not null,
@@ -70,8 +73,6 @@ values
 	('Oceania');
 
 -- !Seccion Ferdinand 
--- ? Creacion base de datos 
-create database human_resources_control_system;
 
 -- ? Creacion tabla managers
 create table if not exists managers (
