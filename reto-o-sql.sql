@@ -144,6 +144,25 @@ values
 	(2,'11/29/2020',NULL,7,15000,10,1,6),
 	(3,'1/21/2021',NULL,7,13000,30,3,1),
 	(4,'09/05/2019','9/16/2019',5,18000,40,1,2),
-	(5,'03/10/2021',NULL,10,13000,10,2,7)
+	(5,'03/10/2021',NULL,10,13000,10,2,7),
+    (6,'04/12/2020',NULL,8,17000,30,2,5),
+	(7,'11/29/2020',NULL,7,15000,10,1,6),
+	(8,'1/21/2021',NULL,7,13000,30,3,1),
+	(9,'09/05/2019','9/16/2019',5,18000,40,1,2),
+	(10,'03/10/2021',NULL,10,13000,10,2,7);
 
 -- !Actualizaciones de datos 
+update hirings 
+set job_id = 1,
+	salary = 20000,
+	comission_pct = 20,
+	departament_id = 10
+where employee_id = 10
+
+update employees 
+set first_name = 'nuevo_nombre',
+	last_name = 'nuevo_apellido',
+	email = 'nuevo-mail',
+	phone_number = 'nuevo_num',
+	hire_date = '01/01/2022'
+where id = 10
