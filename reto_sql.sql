@@ -1,12 +1,12 @@
 -- ? Creacion base de datos 
-create database human_resources_control_system;
+create database HR_Control;
 
 -- !Seccion Aaron 
 create table if not exists countries(
 	id serial primary key not null,
 	name varchar(25) not null,
-	region_id int not null
-	foreign key region_id references regions(id)
+	region_id int not null,
+	foreign key (region_id) references regions(id)
 );
 
 create table if not exists jobs(
@@ -52,7 +52,7 @@ create table if not exists departments(
   manager_id int,
   location_id int,
   constraint fk_managers
-		foreign key(manager_id) references managers(id)
+		foreign key(manager_id) references managers(id),
   constraint fk_locations
     foreign key(location_id) references locations(id)
 );
