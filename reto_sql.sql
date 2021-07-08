@@ -20,7 +20,7 @@ create table if not exists locations(
 	state_province varchar (25) not null,
 	street_address varchar (25) not null,
 	postal_code int not null,
-	country_id int,
+	country_id int not null,
 	foreign key (country_id) references countries(id)
 
 );
