@@ -48,7 +48,7 @@ create database human_resources_control_system;
 -- ? Creacion tabla managers
 create table if not exists managers (
 	id serial primary key not null unique, 
-	employee_id int not null 
+	employee_id int not null,
 	
 	constraint fk_employee
 		foreign key (employee_id)
@@ -65,7 +65,7 @@ create table if not exists hirings (
 	salary float not null,
 	comission_pct float not null,
 	manager_id int not null,
-	departament_id int not null
+	departament_id int not null,
 	
 	constraint fk_employee
 		foreign key (employee_id)
