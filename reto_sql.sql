@@ -55,6 +55,30 @@ values
 	('Asia'),
 	('South America'),
 	('Oceania');
+insert into employees(first_name,last_name,phone_number,email,hire_date)
+values
+	('Gilbertine', 'Goaley', '975-270-8218', 'ggoaley0@bing.com', '01/15/2021'),
+	('Leonanie', 'Gildea', '446-383-6209', 'lgildea1@aboutads.info', '08/05/2020'),
+	('Lyell', 'Ikins', '514-722-3305', 'likins2@pen.io', '04/22/2021'),
+	('Baxter', 'Jervoise', '520-120-4295', 'bjervoise3@yellowbook.com', '12/03/2020'),
+	('Lanni', 'Gilardengo', '548-824-1693', 'lgilardengo4@abc.net.au', '11/10/2020'),
+	('Tiffi', 'Jatczak', '673-341-6555', 'tjatczak5@ucoz.ru', '04/16/2021'),
+	('Yardley', 'Silversmid', '840-768-8816', 'ysilversmid6@ezinearticles.com', '11/28/2020'),
+	('Patrizio', 'Sayers', '984-660-3650', 'psayers7@paginegialle.it', '01/13/2021'),
+	('Godiva', 'Antley', '594-185-2663', 'gantley8@reference.com', '04/28/2021'),
+	('Teddi', 'Trenbey', '166-884-6680', 'ttrenbey9@nyu.edu', '01/16/2021');
+insert into departments(name,manager_id,location_id)
+values
+	('Legal',3,5),
+	('Services',2,4),
+	('Engineering',1,3),
+	('Accounting',3,2),
+	('Support',2,1),
+	('Engineering',1,5),
+	('Product Management',3,4),
+	('Accounting',2,3),
+	('Research and Development',1,2),
+	('Legal',2,2);
 
 -- !Seccion Ferdinand 
 -- ? Creacion base de datos 
