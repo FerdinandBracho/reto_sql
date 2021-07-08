@@ -11,7 +11,7 @@ create table if not exists jobs(
 	title varchar(25) not null,
 	max_salary float not null,
 	min_salary float not null
-	
+
 );
 
 create table if not exists locations(
@@ -41,7 +41,6 @@ create table if not exists departments(
     foreign key(location_id) references locations(id)
 );
 
-<<<<<<< HEAD
 -- !Seccion Ferdinand
 -- ? Creacion base de datos 
 create database human_resources_control_system;
@@ -84,15 +83,3 @@ create table if not exists hirings (
 		foreign key (departament_id)
 			references departaments(id)
 );
-
-=======
-create  table if not exists employees(
-	id serial primary key not null,
-  first_name varchar(50),
-  last_name varchar(50),
-  phone_number varchar(20),
-  email varchar(100),
-  hire_date date,
-);
--- !Seccion Ferdinand 
->>>>>>> dev
