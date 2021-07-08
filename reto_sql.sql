@@ -24,6 +24,19 @@ create table if not exists locations(
 	foreign key (country_id) references countries(id)
 
 );
+
+--FORMULARIOS (INSERTS)
+
+insert into countries (name,region_id)
+values ('China',1),('Thailand',2),('Brazil',3),('Indonesia',4),('Russia',5),('Mexico',1),('Portugal',2),('Spain',3),('Philippines',4),('United States',5);
+
+insert into jobs (title,max_salary,min_salary)
+values ('Research Associate',30000,15000),('Legal Assistant',15000,12000),('Research Assistant II',18000,15000),('Software Engineer III',25000,18000),('Financial Analyst',30000,20000),('Staff Accountant IV',25000,20000),('Librarian',13000,10000),('Desktop Support Technician',18000,14000),('Automation Specialist IV',30000,25000),('Account Coordinator',22000,17000);
+
+insert into locations (city,state_province,street_address,postal_code,country_id)
+values ('Fort Worth','Texas','1885 Comanche Park',76178,2),('Praia de Mira','Coimbra','9 New Castle Junction',3070725,3),('Mujães','Viana do Castelo','8166 Jay Plaza',4905515,4),('Champagnole','Franche-Comté','8675 Washington Way',39304 ,1),('El Calvario','Oaxaca','465 Merchant Alley',68213,5);
+
+
 -- !Seccion Antonio
 create table if not exists regions(
 	id serial primary key not null,
