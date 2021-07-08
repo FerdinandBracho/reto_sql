@@ -118,12 +118,15 @@ values
 	('Patrizio', 'Sayers', '984-660-3650', 'psayers7@paginegialle.it', '01/13/2021'),
 	('Godiva', 'Antley', '594-185-2663', 'gantley8@reference.com', '04/28/2021'),
 	('Teddi', 'Trenbey', '166-884-6680', 'ttrenbey9@nyu.edu', '01/16/2021');
-
- insert into managers (employee_id)
-    values 
-        (3),
-        (4),
-        (8);
+insert into employees(first_name,last_name,phone_number,email,hire_date)
+values
+	('Carlos', 'Santana', '975-270-3418', 'carlsantana0@bing.com', '04/23/2018')
+returning id;
+insert into managers (employee_id)
+values 
+  (3),
+  (4),
+  (8);
 
 insert into departments(name,manager_id,location_id)
 values
