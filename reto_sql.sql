@@ -101,7 +101,7 @@ create table if not exists hirings (
 		foreign key (manager_id)
 			references managers(id),
 			
-	constraint fk_departament
+	constraint fk_department
 		foreign key (departament_id)
-			references departaments(id)
+			references departments(id)
 );
