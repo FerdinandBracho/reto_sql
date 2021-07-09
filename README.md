@@ -1,5 +1,5 @@
 # Reto-SQL
-
+#### Aaron Mendoza - Antornio Servin - Ferdinand Bracho
 
 ## Diagrama Base de datos
 ![](diagram.jpg)
