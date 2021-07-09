@@ -160,7 +160,7 @@ set job_id = 1,
 	salary = 20000,
 	comission_pct = 20,
 	departament_id = 10
-where employee_id = 10
+where employee_id = 10;
 
 update employees 
 set first_name = 'nuevo_nombre',
@@ -168,4 +168,83 @@ set first_name = 'nuevo_nombre',
 	email = 'nuevo-mail',
 	phone_number = 'nuevo_num',
 	hire_date = '01/01/2022'
-where id = 10
+where id = 10;
+
+-- List of locations 
+select 
+	locations.id,
+	city ,
+	state_province ,
+	street_address ,
+	postal_code ,
+	countries.name as country
+from locations
+inner join countries
+	on countries.id = locations.country_id ;
+
+-- List of locations per region
+select
+	locations.id,
+	city ,
+	state_province ,
+	street_address ,
+	postal_code ,
+	countries.name as country,
+	regions.name as region
+from locations
+inner join countries
+	on countries.id = locations.country_id
+inner join regions
+	on regions.id = countries.region_id
+order by regions.name;
+
+-- Employee History
+select 
+	employees.id,
+	first_name ,
+	last_name ,
+	hire_date ,
+	start_date,
+	end_date,
+	jobs.title as job
+from employees
+inner join hirings
+	on hirings.employee_id = employees.id
+inner join jobs
+	on jobs.id = hirings.job_id 
+where employees.id = 4;
+
+delete from locations
+where id = 1;
+
+-- List of departments per Location
+select 
+	departments.id,
+	departments.name as department,
+	city,
+	state_province,
+	street_address,
+	postal_code,
+	countries.name as country
+from departments
+inner join locations
+	on locations.id = departments.location_id
+inner join countries
+	on countries.id = locations.country_id;
+
+-- Responsabilities, List of Employees per manager
+select 
+	manager_emp.first_name as manager_name,
+	man.employee_name
+from (select 
+	e.first_name as employee_name,
+	e.last_name as employee_last_name,
+	m.employee_id 
+from hirings
+inner join employees e
+	on e.id = hirings.employee_id 
+inner join managers m 
+	on m.id = hirings.manager_id ) as man
+inner join employees manager_emp
+	on manager_emp.id = man.employee_id
+order by manager_emp.first_name ;
