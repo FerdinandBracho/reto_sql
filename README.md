@@ -5,6 +5,7 @@
 ![](diagram.jpg)
 
 ## Creacion de base de datos, tablas e insercion de datos para pruebas 
+[Codigo sql](reto-o-sql.sql)
 
 ## Requerimientos de formularios 
 
