@@ -28,6 +28,7 @@ values
         region_id int not null,
         foreign key (region_id) references regions(id)
 );
+```
 
 #### Formulario para crear una nueva posición
 ```sql 
@@ -50,7 +51,7 @@ create table if not exists jobs(
         country_id int not null,
         foreign key (country_id) references countries(id)
 );
-``
+```
 
 #### Formulario para crear nuevos departamentos / áreas de trabajo
 ```sql 
