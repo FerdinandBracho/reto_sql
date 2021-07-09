@@ -201,29 +201,32 @@ select first_name as "FIRST NAME",last_name as "LAST NAME",locations.city as "CI
         inner join countries on locations.country_id = countries.id 
         inner join regions on countries.region_id  = regions.id 
         where locations.city = 'El Calvario'
-        order by first_name 
+        order by first_name; 
 ```
 
 #### List of employees per department
 ```sql 
-select first_name as "FIRST NAME",last_name as "LAST NAME", departments."name" as "DEPARTMENT" from employees 
-        left join hirings on employees.id = hirings.employee_id
-        inner join departments on hirings.departament_id = departments.id
-        where departments."name" = 'Engineering'
-        order by first_name
+select first_name as "FIRST NAME",last_name as "LAST NAME", departments."name" as "DEPARTMENT" 
+from employees 
+left join hirings on employees.id = hirings.employee_id
+inner join departments on hirings.departament_id = departments.id
+where departments."name" = 'Engineering'
+order by first_name;
 ```
 
 #### List of employees by job
 ```sql 
-select first_name as "FIRST NAME",last_name as "LAST NAME",jobs.title as "JOB TITLE" from employees
-        left join hirings on employees.id = hirings.employee_id 
-        inner join jobs on hirings.job_id  = jobs.id 
-        order by first_name 
+select first_name as "FIRST NAME",last_name as "LAST NAME",jobs.title as "JOB TITLE" 
+from employees
+left join hirings on employees.id = hirings.employee_id 
+inner join jobs on hirings.job_id  = jobs.id 
+order by first_name,jobs.title;
 ```
 
 #### Job details
 ```sql 
-select title as "JOB TITLE",max_salary as "MAX SALARY",min_salary as "MIN SALARY" from jobs order by title, max_salary 
+select title as "JOB TITLE",max_salary as "MAX SALARY",min_salary as "MIN SALARY" 
+from jobs where title='Software Engineer III' order by title, max_salary;
 ```
 
 #### Department details
