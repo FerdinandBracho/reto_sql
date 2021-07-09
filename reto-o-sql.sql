@@ -170,7 +170,12 @@ set first_name = 'nuevo_nombre',
 	hire_date = '01/01/2022'
 where id = 10;
 
-<<<<<<< HEAD
+-- !Vistas 
+select first_name, last_name from employees;
+
+select * from employees
+	left join hirings
+		on employees.id = hirings.employee_id;
 -- List of locations 
 select 
 	locations.id,
@@ -249,12 +254,35 @@ inner join managers m
 inner join employees manager_emp
 	on manager_emp.id = man.employee_id
 order by manager_emp.first_name ;
-=======
 
--- !Vistas 
-select first_name, last_name from employees;
+--List all employees of a location
+select first_name as "FIRST NAME",last_name as "LAST NAME",locations.city as "CITY" ,state_province as "STATE",street_address as "STREET",postal_code as "ZIP",countries.name as "COUNTRY",regions.name as "REGION"  
+from employees 
+left join hirings on employees.id = hirings.employee_id
+inner join departments on hirings.departament_id = departments.id
+inner join locations on departments.location_id = locations.id
+inner join countries on locations.country_id = countries.id 
+inner join regions on countries.region_id  = regions.id 
+where locations.city = 'El Calvario'
+order by first_name; 
+	
+--List all employees in a department	
+select first_name as "FIRST NAME",last_name as "LAST NAME", departments."name" as "DEPARTMENT" 
+from employees 
+left join hirings on employees.id = hirings.employee_id
+inner join departments on hirings.departament_id = departments.id
+where departments."name" = 'Engineering'
+order by first_name;
 
-select * from employees
-	left join hirings
-		on employees.id = hirings.employee_id;
->>>>>>> dev
+--all employees by position
+select first_name as "FIRST NAME",last_name as "LAST NAME",jobs.title as "JOB TITLE" 
+from employees
+left join hirings on employees.id = hirings.employee_id 
+inner join jobs on hirings.job_id  = jobs.id 
+order by first_name,jobs.title; 
+
+--Displays the details of a job	
+select title as "JOB TITLE",max_salary as "MAX SALARY",min_salary as "MIN SALARY" 
+from jobs where title='Software Engineer III' order by title, max_salary;  
+
+
