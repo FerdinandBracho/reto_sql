@@ -155,12 +155,12 @@ values
 	(10,'03/10/2021',NULL,10,13000,10,2,7);
 
 -- !Actualizaciones de datos 
-update hirings 
-set job_id = 1,
-	salary = 20000,
-	comission_pct = 20,
-	departament_id = 10
-where employee_id = 10;
+update hirings
+set end_date = '07/08/2021'
+where employee_id = 1;
+
+insert into hirings (employee_id, start_date, end_date, job_id, salary, comission_pct, manager_id, department_id)
+values (1, '07/08/2021', null, 1, 30000, 40, 3, 7);
 
 update employees 
 set first_name = 'nuevo_nombre',
@@ -285,4 +285,37 @@ order by first_name,jobs.title;
 select title as "JOB TITLE",max_salary as "MAX SALARY",min_salary as "MIN SALARY" 
 from jobs where title='Software Engineer III' order by title, max_salary;  
 
+-- Muestra los detalles de un departamento (supervisior, empleados, ubicacion)
+select 
+        distinct departments.name, 
+        employees.first_name as "manager",
+        locations.city,
+        count(hirings.employee_id) as "# employees"
+from departments
+        inner join managers 
+                on departments.manager_id = managers.id
+        left join employees
+                on managers.employee_id = employees.id
+        left join locations 
+                on departments.location_id = locations.id
+        left join hirings
+                on departments.id = hirings.department_id 
+where employees.id in (select managers.employee_id)
+group by departments.name, employees.first_name, locations.city;
 
+-- Muestra los empleados que trabajan para un supervisor
+select 
+        manager_emp.first_name as manager_name,
+        man.employee_name
+from (select 
+        e.first_name as employee_name,
+        e.last_name as employee_last_name,
+        m.employee_id 
+from hirings
+inner join employees e
+        on e.id = hirings.employee_id 
+inner join managers m 
+        on m.id = hirings.manager_id ) as man
+inner join employees manager_emp
+        on manager_emp.id = man.employee_id
+order by manager_emp.first_name ;
