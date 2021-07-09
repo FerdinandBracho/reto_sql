@@ -241,7 +241,9 @@ inner join countries
 -- Responsabilities, List of Employees per manager
 select 
 	manager_emp.first_name as manager_name,
-	man.employee_name
+	manager_emp.last_name as manager_last_name,
+	man.employee_name,
+	man.employee_last_name
 from (select 
 	e.first_name as employee_name,
 	e.last_name as employee_last_name,
@@ -250,7 +252,8 @@ from hirings
 inner join employees e
 	on e.id = hirings.employee_id 
 inner join managers m 
-	on m.id = hirings.manager_id ) as man
+	on m.id = hirings.manager_id 
+where hirings.end_date is null) as man
 inner join employees manager_emp
 	on manager_emp.id = man.employee_id
 order by manager_emp.first_name ;
