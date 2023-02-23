@@ -1,5 +1,3 @@
-# Reto-SQL
-#### Grupo: Aaron Mendoza - Antornio Servin - Ferdinand Bracho
 * Contenido
 	* Diagrama 
 	* Creacion de BD, tablas e insercion de datos 
